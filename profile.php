@@ -17,6 +17,7 @@
 		$_SESSION["SS_FW1"] = $FW[1];
 		$_SESSION["SS_FW2"] = $FW[2];
 		$_SESSION["SS_FW3"] = $FW[3];
+		$_SESSION["USER_ID"] = $uid;
 
 ?>
 
