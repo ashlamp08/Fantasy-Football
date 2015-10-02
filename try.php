@@ -9,13 +9,13 @@ $password = "b130055cs";
 $database = "db_b130055cs";
 
 // Create connection
-$conn = mysql_connect($servername, $username, $password,$database);
+$conn = mysqli_connect($servername, $username, $password,$database);
 
 // Check connection
-if (mysql_error($conn)) {
+if (mysqli_connect_errno($conn)) {
    // die("Connection failed: " . $conn->connect_error);
 }
-echo "LOGIN SUCCESSFUL";
+echo "Connected successfully";
 
 
 $uname = $_POST['s_username'];

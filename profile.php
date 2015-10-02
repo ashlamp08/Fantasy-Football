@@ -1,7 +1,23 @@
 <?php
-	session_start();
-	
+	session_start();	
 	require 'get_team.php';
+	
+		$_SESSION["SS_GK1"] = $GK[1];
+		$_SESSION["SS_GK2"] = $GK[2];
+		$_SESSION["SS_DF1"] = $DF[1];
+		$_SESSION["SS_DF2"] = $DF[2];
+		$_SESSION["SS_DF3"] = $DF[3];
+		$_SESSION["SS_DF4"] = $DF[4];
+		$_SESSION["SS_DF5"] = $DF[5];
+		$_SESSION["SS_MF1"] = $MF[1];
+		$_SESSION["SS_MF2"] = $MF[2];
+		$_SESSION["SS_MF3"] = $MF[3];
+		$_SESSION["SS_MF4"] = $MF[4];
+		$_SESSION["SS_MF5"] = $MF[5];
+		$_SESSION["SS_FW1"] = $FW[1];
+		$_SESSION["SS_FW2"] = $FW[2];
+		$_SESSION["SS_FW3"] = $FW[3];
+
 ?>
 
 <html>
@@ -42,7 +58,7 @@ button{cursor: pointer;
   transition:.5s;} 	
 
 button:hover{background-color:#bd9647;
-color: #ffffff;} 
+color: #ffffff;}
 	
 
 </style>
@@ -54,6 +70,9 @@ color: #ffffff;}
 </head>
 
 <script src="functions.js"></script>
+
+<button type="button" style="position: absolute; padding: 10px; padding-right:15px; top: 100px; right: 295px; z-index: 99; border-radius: 0px 20px 20px 0px; border: 0px;"
+onclick = "document.location.href='logout.php'">Logout</button>
 
 <body>	
 
@@ -155,14 +174,14 @@ Team Selection Forms
 
 <form style="position: absolute; padding: 10px; top: 205px; left: 640px; z-index: 100; " >
 Goalkeeper<br>
-<select id="GK1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:1px; border:0px;"> 
+<select onchange="select_swap(this.id)" id="GK1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:1px; border:0px;"> 
   <option selected="selected" value="GK1"><?php	echo get_player_name($GK[1])?></option>
   <option value="GK2"><?php	echo get_player_name($GK[2])?></option>
 </select>
 <br>
 
 Defenders<br>
-<select id="DF1" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000;  border:0px;">
+<select onchange="select_swap(this.id)" id="DF1" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000;  border:0px;">
   <option selected="selected" value="DF1"><?php	echo get_player_name($DF[1])?></option>
   <option value="DF2"><?php	echo get_player_name($DF[2])?></option>
   <option value="DF3"><?php	echo get_player_name($DF[3])?></option>
@@ -171,7 +190,7 @@ Defenders<br>
 </select> 
  <br>
 
-<select id="DF2" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:1px; border:0px;">
+<select onchange="select_swap(this.id)" id="DF2" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:1px; border:0px;">
   <option value="DF1"><?php	echo get_player_name($DF[1])?></option>
   <option selected="selected" value="DF2"><?php	echo get_player_name($DF[2])?></option>
   <option value="DF3"><?php	echo get_player_name($DF[3])?></option>
@@ -180,7 +199,7 @@ Defenders<br>
 </select>
 <br>
 
-<select id="DF3" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:2px; border:0px;">
+<select onchange="select_swap(this.id)" id="DF3" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:2px; border:0px;">
   <option value="DF1"><?php echo get_player_name($DF[1])?></option>
   <option value="DF2"><?php	echo get_player_name($DF[2])?></option>
   <option selected="selected" value="DF3"><?php	echo get_player_name($DF[3])?></option>
@@ -189,7 +208,7 @@ Defenders<br>
 </select> 
 <br>
 
-<select id="DF4" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:3px; border:0px;">
+<select onchange="select_swap(this.id)" id="DF4" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:3px; border:0px;">
   <option value="DF1"><?php	echo get_player_name($DF[1])?></option>
   <option value="DF2"><?php	echo get_player_name($DF[2])?></option>
   <option value="DF3"><?php	echo get_player_name($DF[3])?></option>
@@ -199,7 +218,7 @@ Defenders<br>
 
 <br>
 
-<select id="DF5" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:4px; border:0px;">
+<select onchange="select_swap(this.id)" id="DF5" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:4px; border:0px;">
   <option value="DF1"><?php	echo get_player_name($DF[1])?></option>
   <option value="DF2"><?php	echo get_player_name($DF[2])?></option>
   <option value="DF3"><?php	echo get_player_name($DF[3])?></option>
@@ -214,7 +233,7 @@ Midfielders<br>
 </div>
 
 
-<select id="MF1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:3px; border:0px;">
+<select onchange="select_swap(this.id)" id="MF1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:3px; border:0px;">
   <option selected="selected" value="MF1"><?php	echo get_player_name($MF[1])?></option>
   <option value="MF2"><?php	echo get_player_name($MF[2])?></option>
   <option value="MF3"><?php	echo get_player_name($MF[3])?></option>
@@ -223,7 +242,7 @@ Midfielders<br>
 </select> 
 <br>
 
-<select id="MF2" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:4px; border:0px;">
+<select onchange="select_swap(this.id)" id="MF2" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:4px; border:0px;">
   <option value="MF1"><?php	echo get_player_name($MF[1])?></option>
   <option selected="selected" value="MF2"><?php	echo get_player_name($MF[2])?></option>
   <option value="MF3"><?php	echo get_player_name($MF[3])?></option>
@@ -232,7 +251,7 @@ Midfielders<br>
 </select> 
 <br>
 
-<select id="MF3" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:5px; border:0px;">
+<select onchange="select_swap(this.id)" id="MF3" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:5px; border:0px;">
   <option value="MF1"><?php	echo get_player_name($MF[1])?></option>
   <option value="MF2"><?php	echo get_player_name($MF[2])?></option>
   <option selected="selected" value="MF3"><?php	echo get_player_name($MF[3])?></option>
@@ -241,7 +260,7 @@ Midfielders<br>
 </select> 
 <br>
 
-<select id="MF4" style="width: 263px; height: 25px;    background-color:#deb258; border-color:#000000; position:relative; top:6px; border:0px;">
+<select onchange="select_swap(this.id)" id="MF4" style="width: 263px; height: 25px;    background-color:#deb258; border-color:#000000; position:relative; top:6px; border:0px;">
   <option value="MF1"><?php	echo get_player_name($MF[1])?></option>
   <option value="MF2"><?php	echo get_player_name($MF[2])?></option>
   <option value="MF3"><?php	echo get_player_name($MF[3])?></option>
@@ -251,7 +270,7 @@ Midfielders<br>
 
 <br>
 
-<select id="MF5" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:7px; border:0px;">
+<select onchange="select_swap(this.id)" id="MF5" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; position:relative; top:7px; border:0px;">
   <option value="MF1"><?php	echo get_player_name($MF[1])?></option>
   <option value="MF2"><?php	echo get_player_name($MF[2])?></option>
   <option value="MF3"><?php	echo get_player_name($MF[3])?></option>
@@ -265,7 +284,7 @@ Forwards<br>
 </div>
 
 
-<select id="FW1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:4px;border:0px;">
+<select onchange="select_swap(this.id)" id="FW1" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:4px;border:0px;">
   <option selected="selected" value="FW1"><?php	echo get_player_name($FW[1])?></option>
   <option value="FW2"><?php	echo get_player_name($FW[2])?></option>
   <option value="FW3"><?php	echo get_player_name($FW[3])?></option>
@@ -274,7 +293,7 @@ Forwards<br>
 
 <br>
 
-<select id="FW2" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:5px; border:0px;">
+<select onchange="select_swap(this.id)" id="FW2" style="width: 263px; height: 25px;   background-color:#deb258; border-color:#000000; position:relative; top:5px; border:0px;">
   <option value="FW1"><?php	echo get_player_name($FW[1])?></option>
   <option selected="selected" value="FW2"><?php	echo get_player_name($FW[2])?></option>
   <option value="FW3"><?php	echo get_player_name($FW[3])?></option>
@@ -282,7 +301,7 @@ Forwards<br>
 
 <br>
 
-<select id="FW3" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; border:0px; position:relative; top:6px; border:0px;">
+<select onchange="select_swap(this.id)" id="FW3" style="width: 263px; height: 25px;  background-color:#deb258; border-color:#000000; border:0px; position:relative; top:6px; border:0px;">
   <option value="FW1"><?php	echo get_player_name($FW[1])?></option>
   <option value="FW2"><?php	echo get_player_name($FW[2])?></option>
   <option selected="selected" value="FW3"><?php	echo get_player_name($FW[3])?></option>
@@ -349,6 +368,36 @@ class=""></div>
 position: absolute; top: 425px; left: 940px; z-index: -1; background-color: rgb(189, 150, 71); box-shadow: rgb(0, 0, 0) 2px 2px 15px 0px; border-radius: 20px;"
 class=""></div>
 
+<!--
+FORM TO PASS PLAYER VARIABLES TO CONFIRM
+-->
+
+<form action="set_team.php" method="POST">
+<input type='hidden' id="S_GK1" name="S_GK1" value="">
+<input type='hidden' id='S_GK2' name="S_GK2" value="">
+<input type='hidden' id='S_DF1' name="S_DF1" value="">
+<input type='hidden' id='S_DF2' name="S_DF2" value="">
+<input type='hidden' id='S_DF3' name="S_DF3" value="">
+<input type='hidden' id='S_DF4' name="S_DF4" value="">
+<input type='hidden' id='S_DF5' name="S_DF5" value="">
+<input type='hidden' id='S_MF1' name="S_MF1" value="">
+<input type='hidden' id='S_MF2' name="S_MF2" value="">
+<input type='hidden' id='S_MF3' name="S_MF3" value="">
+<input type='hidden' id='S_MF4' name="S_MF4" value="">
+<input type='hidden' id='S_MF5' name="S_MF5" value="">  
+<input type='hidden' id='S_FW1' name="S_FW1" value="">
+<input type='hidden' id='S_FW2' name="S_FW2" value="">
+<input type='hidden' id='S_FW3' name="S_FW3" value="">
+<input type='submit' value='Confirm Team' style="position: absolute; padding: 10px; padding-right:15px; top: 100px; right: 360px; z-index: 99; border-radius: 20px 0px 0px 20px; border: 0px;">
+</form>
+
+
+<script>
+	myFunction();
+	set_selected();
+</script>
+
 </body>
+	
 
 </html>

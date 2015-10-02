@@ -1,8 +1,11 @@
 <?php
 	session_start();
-	echo $_SESSION['email'];
+	//echo $_SESSION['email'];
 	if(isset( $_SESSION['email']))
 		header('Location: profile.php') && exit() && die();
+//	if(isset( $_SESSION['pass']))
+//		echo  '<h1>' . $_SESSION['pass'] . '</h1>';
+			
 ?>
 
 <html>
@@ -79,11 +82,11 @@ border-radius: 14px; box-shadow: rgb(0, 0, 0) 4px 3px 7px 0px;" />
 <tr>
 <td>
 <h3>Please enter your credentials:</h3>
-<form action="<?php $_SERVER['PHP_SELF']?>" method='POST'>
+<form action="login.php" method='POST'>
  Username: <br><input type='text' name = 's_username'> <br>
  Password : <br><input type='password' name='s_password'> <br>
 <br>
-<br> <input type="hidden" name ="firstTime" value="second">
+<!--<br> <input type="hidden" name ="firstTime" value="second">-->
 <input type='submit' value='Enter Fantasy Football!'>
 </form>
 
@@ -108,11 +111,14 @@ border-radius: 14px; box-shadow: rgb(0, 0, 0) 4px 3px 7px 0px;" />
 </form>-->
 </table>
 
+<!--
+<?php// $_SERVER['PHP_SELF']?>
 <?php
 
-require 'login.php';
+//require 'login.php';
 
 ?>
+-->
 
 		
 </body>

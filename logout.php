@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 require 'connect.php';
 
 session_unset();
 session_destroy();
 
-header('Location: index.php') && exit();
+header('Location: index.php') && die();
 ?>
 
