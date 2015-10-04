@@ -1,11 +1,7 @@
 <?php
 	session_start();
-	//echo $_SESSION['email'];
 	if(isset( $_SESSION['email']))
-		header('Location: profile.php') && exit() && die();
-//	if(isset( $_SESSION['pass']))
-//		echo  '<h1>' . $_SESSION['pass'] . '</h1>';
-			
+		header('Location: profile.php') && exit() && die();			
 ?>
 
 <html>
@@ -40,6 +36,22 @@ padding-left: 90px;}
 		
 </style>
 
+<script>
+function sign_inup(id)
+{
+	if(id.localeCompare("in_button")==0)
+	{
+		document.getElementById("SIGNUP").style.display = 'none';
+		document.getElementById("SIGNIN").style.display = 'block';
+	}
+	else
+	{
+		document.getElementById("SIGNIN").style.display = 'none';
+		document.getElementById("SIGNUP").style.display = 'block';
+	}
+}
+</script>
+
 <head>
 	
 <title>Fantasy Football 2015</title>
@@ -52,7 +64,8 @@ padding-left: 90px;}
 <table align='left' >
 <tr>
 <td>
-<h3>  Sign In / Sign Up  </h3>
+<button id="in_button" onclick="sign_inup(this.id)" type="button" style="width: 90px; height: 30px; border-radius: 20px 0px 0px 20px; border: 0px;">  Sign In  </button>
+<button id="up_button" onclick="sign_inup(this.id)" type="button" style="width: 90px; height: 30px; border-radius: 0px 20px 20px 0px; border: 0px;">  Sign Up  </button>
 </td>
 <!--<td>
 <h3>  Or Enter your login details  </h3>
@@ -82,33 +95,23 @@ border-radius: 14px; box-shadow: rgb(0, 0, 0) 4px 3px 7px 0px;" />
 <tr>
 <td>
 <h3>Please enter your credentials:</h3>
-<form action="login.php" method='POST'>
+<form id="SIGNIN" action="login.php" method='POST'>
  Username: <br><input type='text' name = 's_username'> <br>
  Password : <br><input type='password' name='s_password'> <br>
 <br>
 <!--<br> <input type="hidden" name ="firstTime" value="second">-->
 <input type='submit' value='Enter Fantasy Football!'>
 </form>
-
-</td>
-
-<!--<td>
-<h3>Student Registration:</h3>
-<form action="stu_login.php" method="post">
- Username: <br><input type='text' name = 's_username'> <br>
- Password : <br><input type='password' name='s_password'> <br>
+<form style="display: none" id="SIGNUP" action="aftersignup.php" method='POST'>
+ Username: <br><input type='text' name = 'username'> <br>
+ Teamname: <br><input type='text' name = 'teamname'> <br>
+ email-id: <br><input type='text' name = 'email'> <br>
+ Password : <br><input type='password' name='password'> <br>
 <br>
- <input type='submit' value='Login'>
+<input type='submit' value='Create Team'>
 </form>
 
-<h3>Teacher Login:</h3>
-<form action="tea_login.php" method="post">
- Username: <br><input type='text' name = 't_username'> <br>
- Password : <br> <input type='password' name='t_password'> <br>
-<br>
- <input type='submit' value="Login">
 </td>
-</form>-->
 </table>
 
 <!--

@@ -49,5 +49,5 @@ echo $_POST["S_FW3"] . ' ' . $_SESSION["SS_FW3"] . '<br>';*/
 $result = mysqli_query($conn, $sql);
 
 if($result == 1)
-	echo 'user database updated';
+	echo 'user database changed';
 ?>
