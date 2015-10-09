@@ -3,7 +3,8 @@ session_start();
 	require 'connect.php';		
 
 	if (!$conn) {
-		header('Location: index.php') && die("Could Not connect to data base");
+		header('Location: index.php?error=1') && exit();
+		die("Could Not connect to data base");
 	}
 	echo $_POST['username'];
 	echo $_POST['teamname'];
@@ -12,25 +13,27 @@ session_start();
 	
 	$sql="select U.EMAIL, U.TEAM_NAME from USER_TABLE U where (U.EMAIL LIKE \"".$_POST['email']."\");";
 	
-	echo $sql;
-	$result = mysqli_query($conn,$sql);
+	$result =  mysqli_query($conn, $sql);
 	
-	if($result->num_rows >0)
+	print_r($result);
+
+	
+	if(($result->num_rows) > 0)
 	{
-		//echo "1";
-		header('Location: index.php')&& die("Email already present");
+	//	echo $sql;
+		header('Location: index.php?error=2') && exit(); 
+		die("Email already present");
 	}
 
 	$sql="SELECT U.EMAIL, U.TEAM_NAME from USER_TABLE U where U.TEAM_NAME LIKE \"".$_POST['teamname']."\";";
 	$result =  mysqli_query($conn, $sql);
 
-	if($result->num_rows >0)
+	if($result->num_rows > 0)
 	{
-		header('Location: index.php')&& die("teamname already present");
+		header('Location: index.php?error=3') && exit();
+		die("teamname already present");
 	}
 	
-	
-			
 		$_SESSION['username'] = $_POST["username"];
 		$_SESSION['email'] = $_POST["EMAIL"];
 		$_SESSION['teamname'] = $_POST["teamname"];
@@ -40,7 +43,8 @@ session_start();
 		
 		if($result==0)
 		{
-			header('Location: index.php')&& die("failed to add");
+			header('Location: index.php?error=4') && exit();
+			die("failed to add");
 		}
 		
 		//echo "!";
@@ -51,6 +55,8 @@ session_start();
 		//print_r( $result);
 		$user = mysqli_fetch_array($result);
 		$uid = $user['USER_ID'];
+		
+		$_SESSION['USER_ID'] = $uid;
 			
 		$sql = "INSERT INTO LOGIN (`USER_ID`,`PASSWORD`) VALUES (". $uid.","."\"".$_POST['password']."\");";
 		$result =  mysqli_query($conn, $sql);
@@ -58,10 +64,11 @@ session_start();
 
 		if($result==0)
 		{
-			header('Location: index.php')&& die("failed to add 2");
+			header('Location: index.php?error=4') && exit();
+			die("failed to add 2");
 		}
 			
-		$_SESSION['msg'] = "Registered";
+		$_SESSION['SIGNEDUP'] = true;
 		
 		header('Location: transfer.php')&& exit();		
 ?>

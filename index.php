@@ -1,7 +1,16 @@
 <?php
 	session_start();
 	if(isset( $_SESSION['email']))
-		header('Location: profile.php') && exit() && die();			
+		header('Location: profile.php') && exit() && die();
+		
+	if($_GET['error'] == 1)
+		echo 'Connection Error';
+	else if($_GET['error'] == 2)
+		echo 'Email Exists';
+	else if($_GET['error'] == 3)
+		echo 'Team name Exists';
+	else if($_GET['error'] == 4)
+		echo 'Database error';				
 ?>
 
 <html>

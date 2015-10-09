@@ -11,7 +11,7 @@ session_start();
 		header('Location: index.php') && die("Could Not connect to data base");
 	}
 	
-	$sql = "select U.EMAIL, U.NAME, L.PASSWORD from USER_TABLE U, LOGIN L where (U.USER_ID = L.USER_ID);";
+	$sql = "select U.EMAIL, U.NAME, L.PASSWORD, U.NAME, U.TEAM_NAME from USER_TABLE U, LOGIN L where (U.USER_ID = L.USER_ID);";
 	$result =  mysqli_query($conn, $sql);
 	//var_dump($result);
 		
@@ -22,14 +22,16 @@ session_start();
 		{
 			if(($user["EMAIL"] == $_POST["s_username"]) && ($user["PASSWORD"] == $_POST["s_password"]))
 			{
-				$_SESSION['uname'] = $user["NAME"];
+				$_SESSION['username'] = $user["NAME"];
 				$_SESSION['email'] = $user["EMAIL"];
-					header('Location: profile.php') && exit();
+				$_SESSION['teamname'] = $user["TEAM_NAME"];
+					
+				header('Location: profile.php') && exit();
+				die();
 			}
 			//echo '$user["NAME"]';
 		}		
 	
-		$_SESSION['pass'] = "Wrong Email or Password";
 		header('Location: index.php') && die("Wrong Email or Password");
 			
 	}

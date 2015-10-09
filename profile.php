@@ -18,7 +18,7 @@
 		$_SESSION["SS_FW2"] = $FW[2];
 		$_SESSION["SS_FW3"] = $FW[3];
 		$_SESSION["USER_ID"] = $uid;
-
+		
 ?>
 
 <html>
@@ -74,6 +74,9 @@ color: #ffffff;}
 
 <button type="button" style="position: absolute; padding: 10px; padding-right:15px; top: 100px; right: 295px; z-index: 99; border-radius: 0px 20px 20px 0px; border: 0px;"
 onclick = "document.location.href='logout.php'">Logout</button>
+
+<button type="button" style="position: absolute; padding: 10px; padding-right:15px; top: 80px; right: 295px; z-index: 99; border-radius: 20px 20px 20px 20px; border: 0px;"
+onclick = "document.location.href='transfer.php'">Transfer</button>
 
 <body>	
 
