@@ -7,6 +7,8 @@ if(!isset( $_SESSION['email']))
 	
 require 'connect.php';
 
+echo $_POST["FORMATION"];
+
 $sql = 'UPDATE USER_TEAM_TABLE SET ' . 
 $_POST["S_GK1"] . '=' . $_SESSION["SS_GK1"] . ', ' .
 $_POST["S_GK2"] . '=' . $_SESSION["SS_GK2"] . ', ' .
@@ -22,8 +24,10 @@ $_POST["S_MF4"] . '=' . $_SESSION["SS_MF4"] . ', ' .
 $_POST["S_MF5"] . '=' . $_SESSION["SS_MF5"] . ', ' .
 $_POST["S_FW1"] . '=' . $_SESSION["SS_FW1"] . ', ' .
 $_POST["S_FW2"] . '=' . $_SESSION["SS_FW2"] . ', ' .
-$_POST["S_FW3"] . '=' . $_SESSION["SS_FW3"] . ' ' .
-'WHERE USER_ID=' . $_SESSION["USER_ID"] . ';';
+$_POST["S_FW3"] . '=' . $_SESSION["SS_FW3"] . ', ' .
+"FORMATION" . '=' . $_POST["FORMATION"]  . ', ' .
+"CAPTAIN" . '=' . $_POST["CAPTAIN"]  . ' ' .
+ 'WHERE USER_ID=' . $_SESSION["USER_ID"] . ';';
 
 //echo $sql . '<br>';
 /*

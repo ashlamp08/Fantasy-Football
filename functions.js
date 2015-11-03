@@ -90,7 +90,6 @@ function set_selected()
 	
 function myFunction() {
 	
-//	alert("done");
     var selected=document.getElementById("formation").value;
     if(selected==442)
 	  {document.getElementById("formimage").src="http://i.imgur.com/aN42IoQ.png";
@@ -100,6 +99,7 @@ function myFunction() {
 	   document.getElementById("MF5").disabled=true;
 	   document.getElementById("FW2").disabled=false;
 	   document.getElementById("FW3").disabled=true;
+	   document.getElementById("FORM").value = 442;
 	   }
 	if(selected==451)
 	  {document.getElementById("formimage").src="http://i.imgur.com/Puje3pQ.png";
@@ -109,6 +109,8 @@ function myFunction() {
 	   document.getElementById("MF5").disabled=false;
 	   document.getElementById("FW2").disabled=true;
 	   document.getElementById("FW3").disabled=true;
+	   document.getElementById("FORM").value = 451;
+	   
 	  }
 	if(selected==433)
 	  {document.getElementById("formimage").src="http://i.imgur.com/bJXVB6v.png";
@@ -118,6 +120,8 @@ function myFunction() {
 	   document.getElementById("MF5").disabled=true;
 	   document.getElementById("FW2").disabled=false;
 	   document.getElementById("FW3").disabled=false;
+	   document.getElementById("FORM").value = 433;
+	   
 	   }
 	if(selected==352)
 	  {document.getElementById("formimage").src="http://i.imgur.com/Ceh64ye.png";
@@ -127,5 +131,7 @@ function myFunction() {
 	   document.getElementById("MF5").disabled=false;
 	   document.getElementById("FW2").disabled=false;
 	   document.getElementById("FW3").disabled=true;
+	   document.getElementById("FORM").value = 352;
+	   
 	}   
 }

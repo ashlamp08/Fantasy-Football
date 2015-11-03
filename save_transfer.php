@@ -35,9 +35,21 @@ if(isset($_SESSION['SIGNEDUP'])) //new
 	
 	if($result==1)
 	{
+		$sql = "UPDATE USER_TABLE SET " .
+		'TEAM_VALUE ='. $_POST['TEAM_VALUE'] . ", ".
+		'BALANCE =' . $_POST['BANK_BALANCE'] . " ".
+		' WHERE USER_ID=' . $_SESSION["USER_ID"] . ';';
+		
+		echo $sql;
+		
+		$result = mysqli_query($conn,$sql);
+		
+		if($result == 1)
+		{
 		unset($_SESSION['SIGNEDUP']);
-		header('Location: profile.php') &&exit();
+		header('Location: profile.php') && exit();
 		die();
+		}
 	}
 }
 else
@@ -60,14 +72,28 @@ else
 	'FW3 =' .$_POST['PID_FW3']. 
 	' WHERE USER_ID=' . $_SESSION["USER_ID"] . ';';
 
+	echo $_POST["TEAM_VALUE"];
 	echo $sql;
 	
 	$result = mysqli_query($conn,$sql);
 	
 	if($result==1)
 	{
+		$sql = "UPDATE USER_TABLE SET " .
+		'TEAM_VALUE ='. $_POST["TEAM_VALUE"] . ", ".
+		'BALANCE =' . $_POST["BANK_BALANCE"] . " ".
+		' WHERE USER_ID=' . $_SESSION["USER_ID"] . ';';
+		
+		echo $sql;
+		
+		$result = mysqli_query($conn,$sql);
+		
+		if($result == 1)
+		{
+		unset($_SESSION['SIGNEDUP']);
 		header('Location: profile.php') && exit();
 		die();
+		}
 	}
 }
 	

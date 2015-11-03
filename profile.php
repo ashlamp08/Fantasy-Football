@@ -18,6 +18,8 @@
 		$_SESSION["SS_FW2"] = $FW[2];
 		$_SESSION["SS_FW3"] = $FW[3];
 		$_SESSION["USER_ID"] = $uid;
+		$_SESSION["FORMATION"] = $form;
+		$_SESSION["CAPTAIN"] = $captain;
 		
 ?>
 
@@ -90,7 +92,7 @@ onclick = "document.location.href='transfer.php'">Transfer</button>
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 48pt;">
-        <span style="color: rgb(255, 255, 255);">Welcome, <?php	echo $_SESSION['uname']?>
+        <span style="color: rgb(255, 255, 255);">Welcome, <?php	echo $_SESSION['username']?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 951px; height: 230px; position: absolute; padding: 10px; top: 86px; left: 12px; z-index: 4; " class="">
   <span style="font-weight: bold;">
@@ -170,6 +172,7 @@ onclick = "document.location.href='transfer.php'">Transfer</button>
   <option <?php if($form == 352){echo "selected" ;}?> value="352">3-5-2</option>
 </select>
 </form>
+
 
 
 <!--
@@ -355,10 +358,6 @@ top: 480px; left: 1221px; z-index: 101; background-color: #bd9647;"></div>
 END_Substitution Selection Forms
 -->
 
-
-<button type="button" style="position: absolute; padding: 10px; padding-left:15px; top: 155px; left: 332px; z-index: 99; border-radius: 0px 20px 20px 0px; border: 0px;"
-onclick="myFunction()">select</button>
-
 <img id="formimage" src=<?php echo $src?> style="width: 930px; height: 500px; position: absolute; top: 220px; left: -135px;"/>
 
 
@@ -392,8 +391,13 @@ FORM TO PASS PLAYER VARIABLES TO CONFIRM
 <input type='hidden' id='S_FW1' name="S_FW1" value="">
 <input type='hidden' id='S_FW2' name="S_FW2" value="">
 <input type='hidden' id='S_FW3' name="S_FW3" value="">
+<input type='hidden' id='FORM' name="FORMATION" value="<?php echo $form?>">
+<input type='hidden' id='CAPTAIN' name="CAPTAIN" value="<?php echo $captain?>">
 <input type='submit' value='Confirm Team' style="position: absolute; padding: 10px; padding-right:15px; top: 100px; right: 360px; z-index: 99; border-radius: 20px 0px 0px 20px; border: 0px;">
 </form>
+
+<button type="button" style="position: absolute; padding: 10px; padding-left:15px; top: 155px; left: 332px; z-index: 99; border-radius: 0px 20px 20px 0px; border: 0px;"
+onclick="myFunction()">select</button>
 
 
 <script>
