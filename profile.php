@@ -98,44 +98,44 @@ onclick = "document.location.href='transfer.php'">Transfer</button>
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 36pt;">
-        <span style="color: rgb(255, 255, 255);">Custom User Team Name 
+        <span style="color: rgb(255, 255, 255);"><?php	echo $teamname;?> 
            </span></span></span></div>
 
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 205px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">Overall Points:
+        <span style="color: rgb(255, 255, 255);">Overall Points: <?php	echo $totalpoints;?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 235px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">Overall Rank:
+        <span style="color: rgb(255, 255, 255);">Overall Rank: <?php echo $rank;?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 265px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">GameWeek Points:
+        <span style="color: rgb(255, 255, 255);">GameWeek Points: <?php	echo $gwpoints;?>
            </span></span></span></div>		   
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 295px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">Total Users:
+        <span style="color: rgb(255, 255, 255);">Total Users: <?php	echo $totusers;?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 325px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">Total Team Value:
+        <span style="color: rgb(255, 255, 255);">Total Team Value: <?php echo $teamval;?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 355px; left: 955px; z-index: 4; " class="">
   <span style="font-weight: bold;">
     <span style="font-family: 'Century Gothic';">
       <span style="font-size: 12pt;">
-        <span style="color: rgb(255, 255, 255);">Balance in bank:
+        <span style="color: rgb(255, 255, 255);">Balance in bank: <?php	echo $balance;?>
            </span></span></span></div>
 <div id="txtBox_4" objtype="2" style="width: 200px; height: 230px; position: absolute; padding: 10px; top: 165px; left: 641px; z-index: 4; " class="">
   <span style="font-weight: bold;">

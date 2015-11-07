@@ -19,6 +19,15 @@ $form = null;
 $captain = null;
 $pname = null;
 
+$totalpoints = null;
+$gwpoints = null;
+$teamval = null;
+$balance = null;
+
+$totusers = null;
+$rank = null;
+$teamname  = null;
+
 if($result->num_rows == 1)
 {
 	$tuple = mysqli_fetch_array($result);
@@ -38,7 +47,42 @@ if($result->num_rows == 1)
 		$FW = array(null,$tuple["FW1"],$tuple["FW2"],$tuple["FW3"]);
 		$form = $tuple["FORMATION"];
 		$captain = $tuple["CAPTAIN"];
-	} 			
+	} 	
+	
+	$sql = 'SELECT * FROM USER_TABLE WHERE USER_ID = ' . $uid . ';';
+	$result = mysqli_query($conn, $sql);
+	
+	if($result->num_rows == 1)
+	{
+		$tuple = mysqli_fetch_array($result);
+		
+		$totalpoints = $tuple["TOTAL_POINTS"];
+		$gwpoints = $tuple["GW_POINTS"];
+		$teamval = $tuple["TEAM_VALUE"];
+		$balance = $tuple["BALANCE"];
+		$teamname = $tuple["TEAM_NAME"];
+	}		
+	
+	$sql = 'SELECT COUNT(*) AS TOTUSERS FROM USER_TABLE;';
+	$result = mysqli_query($conn, $sql);
+	
+	if($result->num_rows == 1)
+	{
+		$tuple = mysqli_fetch_array($result);
+		
+		$totusers = $tuple["TOTUSERS"];
+	}
+	
+	$sql = 'SELECT COUNT(*) AS RANK FROM USER_TABLE WHERE TOTAL_POINTS >' . $totalpoints . ';';
+	$result = mysqli_query($conn, $sql);
+	
+	if($result->num_rows == 1)
+	{
+		$tuple = mysqli_fetch_array($result);
+		
+		$rank = $tuple["RANK"] + 1;
+	}
+	
 }
 
 	if($form == 442){

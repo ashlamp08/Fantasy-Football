@@ -55,6 +55,11 @@
 		document.getElementById(cid).value="";
 		document.getElementById(pname).value="";
 		document.getElementById(price_pl).value=0;
+		
+		if(Number(document.getElementById('BANK_BALANCE').value)<0)
+			document.getElementById('confirm_button').disabled = true;
+		else
+			document.getElementById('confirm_button').disabled = false;
 	}	
 		
 	
@@ -112,6 +117,11 @@
 					
 					team[Number($(cid).text())]++;
 					
+					if(Number(document.getElementById('BANK_BALANCE').value)<0)
+						document.getElementById('confirm_button').disabled = true;
+					else
+						document.getElementById('confirm_button').disabled = false;
+					
 					flag = true;
 					break;
 				}
@@ -162,6 +172,11 @@
 					document.getElementById('BANK_BALANCE').value = (Number(document.getElementById('BANK_BALANCE').value) - price).toFixed(1);
 					
 					team[Number($(cid).text())]++;
+					
+					if(Number(document.getElementById('BANK_BALANCE').value)<0)
+						document.getElementById('confirm_button').disabled = true;
+					else
+						document.getElementById('confirm_button').disabled = false;					
 					
 					flag = true;
 					break;
@@ -215,6 +230,11 @@
 					
 					team[Number($(cid).text())]++;
 					
+					if(Number(document.getElementById('BANK_BALANCE').value)<0)
+						document.getElementById('confirm_button').disabled = true;
+					else
+						document.getElementById('confirm_button').disabled = false;					
+					
 					flag = true;
 					break;
 				}
@@ -266,6 +286,11 @@
 					document.getElementById('BANK_BALANCE').value = (Number(document.getElementById('BANK_BALANCE').value) - price).toFixed(1);
 					
 					team[Number($(cid).text())]++;
+					
+					if(Number(document.getElementById('BANK_BALANCE').value)<0)
+						document.getElementById('confirm_button').disabled = true;
+					else
+						document.getElementById('confirm_button').disabled = false;					
 					
 					flag = true;
 					break;
